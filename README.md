@@ -26,7 +26,7 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
  - Verification worked if command comes back as **"Good Signature from "Pierre Schnitze" <pierre@archlinux.org>"**
    
 ## Set Console Keyboard Layout and Font 
-- Change console keymap: If you wish for your keyboard to remain in English, then the following commands wont’t be necessary.  
+- Change console keymap: If you wish for your keyboard to remain in English, then the following commands won’t be necessary.  
   ````
   	localectl status # Look at the current keymaps used
   	localectl list–keymaps  # List all types of keyboards
@@ -34,7 +34,7 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
   ````
 
 ## Change Console Font: 
-- Change console font: If you wish for your font to remain the same, then the following commands wont’t be necessary.  
+- Change console font: If you wish for your font to remain the same, then the following commands won’t be necessary.  
 - Command:
   ````
 	ls /usr/share/kbd/consolefonts/   # List all of the fonts 
@@ -48,13 +48,13 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
   ````
  - When following command, it returned as **64**. This signifies that the system has booted in UEFI mode and has a 64-bit UEFI
 
-## Connect to the internet 
+## Connect to the Internet 
 - When doing the installation in a VM, your VM should already have a network established.
 - But it is important to verify connection:
   ````
 	 ping ping.archlinux.org # Test connection
   ````
-  - When doing the above command, if their is a network connection it should return a response from the server that it has connected. 
+  - When doing the above command, if there is a network connection it should return a response from the server that it has connected. 
 
 ## Update the System Clock 
 - Check if the system clock is correct using the status command. If the time is corrent, then no action will need to be taken.
@@ -116,7 +116,7 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
 	reflector --protocol https --sort rate --latest 20 --save /etc/pacman.d/mirrorlist
 	````
 ## Installing Essential Packages 
-- Makes sure that the systems is functional and secure by supporting the hardware after installation.
+- Makes sure that the system is functional and secure by supporting the hardware after installation.
 ````
 	pacstrap –K /mnt base linux linux-firmware  
 ````
@@ -161,11 +161,11 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
 	````
 
 ## Initramfs 
-- Its a temporary root filesystem that loaded into memory. It prepares the system enviornment to be mounted and booted.
+- It's a temporary root filesystem that is loaded into memory. It prepares the system enviornment to be mounted and booted.
 	````
 	mkinitcpio -P
 	````
-## Root password 
+## Root Password 
 - Sets up the password for root
 	````
 	passwd
@@ -270,7 +270,7 @@ alias update='pacman -Syu update'
 	````
 
 # Discussed Installation Problems 
-- When transitioning from USB to Windows. I accidentally deleted both from my device, which meant I had to take it to where I bought my computer to see if it could be fixed. I then found out that I wasn't supposed to do that.
+- When transitioning from USB to Windows, I accidentally deleted both from my device, which meant I had to take it to where I bought my computer to see if it could be fixed. I then found out that I wasn't supposed to do that.
 - When installing packages, I kept getting errors because the partition was full. I had to increase the partition size by resizing it.
 - When verifying the boot mode, there were no results. I forgot to change the settings to accept the UEFI feature. After checking the UEFI box and booting the VM, I checked again and it worked.
 - After rebooting the VM at the end of the installation, I forgot to change the device order and started downloading packages to the Arch-Linux ISO instead of the ArchVM.vdi. After deleting the Arch Linux ISO, I logged into the VDI and was able to save my changes and view my graphical environment. 
