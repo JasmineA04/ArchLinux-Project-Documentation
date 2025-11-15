@@ -1,4 +1,4 @@
-# ArchLinux-Project
+# ArchLinux-Project-Documentation
 Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This documentation will follow the Arch Linux Wiki Installation Guide. 
 # Pre-Installation
 ## Choose your iso  
@@ -66,8 +66,6 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
 
 ## Partition the Disks 
 - Use the command of **lsblk** to list the different partition.
-- To check for any active partition on the drive, use the commands of # gdisk /dev/sda. 
-	- If installing for the first time, then skip this step. If not, skip the next step and continue with the steps.  
 - Using the command # fdisk /dev/disk_to_be _partitioned allows the user to partition the main storage device. (I will be using # fdisk /dev/sda) 
 - To delete desired existing partitions, do the following command till all existing partitions are deleted Command (m for help):# d 
 - **Note**: The size will depend on how much storage you want to allocate to each partition the one given below are suggestions 
@@ -77,7 +75,7 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
 	- Command (m for help):# n 
 		- Partition number (1-128, default 1):# Enter tab 
 		- First sector (..., default 2048):# Enter tab 
-		- Last sector ..:# 500M # Desired_size
+		- Last sector ..:# 500M # 500M
 ````
 - Creating Partition 2: Main
 	````
@@ -155,6 +153,7 @@ Documentation on the Installation Guide on an Arch Linux VM in Virtual Box. This
  	echo archlinux-desktop > /etc/hostname
 	````
 - Configure networking
+	- Configure the network for the VM
 	````
  	pacman -Sy networkmanager
    	systemctl start NetworkManager
@@ -245,7 +244,6 @@ alias update='pacman -Syu update'
   
 # Customization
 - This will differ depending on the user needs. This will just go over the basic options. 
-
 ## Installing a Graphical Environment
 ### Installing a Display Server
 - Your can either chose Xorg or Wayland. To compare use the below url.
@@ -263,11 +261,12 @@ alias update='pacman -Syu update'
     systemctl start gdm
  	````
  ### Installing AUR Helper
+ - AUR helper helps simplifies the process of installing, updating, and managing packaged for Arch User Repository.
 	````
 	sudo pacman -S --needed base-devel git # Instal base-devel and git
 	git clone https://aur.archlinux.org/yay.git # Clone yay
 	cd yay
-	makepkg -si # Build and install
+	makepkg -si # Build the installer
 	````
 
 # Discussed Installation Problems 
